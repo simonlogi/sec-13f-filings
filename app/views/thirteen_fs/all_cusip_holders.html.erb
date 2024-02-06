@@ -1,9 +1,8 @@
 <%
-title "#{@name_for_title} – Q#{@quarter} #{@year} 13F Holders"
+title "#{@name_for_title} - Q#{@quarter} #{@year} 13F Holders"
 canonical_url all_cusip_holders_url(cusip: @cusip, year: @year, quarter: @quarter)
 meta_description "Institutional investment managers who reported holding #{@investment_name} in Q#{@quarter} #{@year}"
 %>
-
 <div class="w-full md:max-w-2xl mb-8">
   <div class="bg-white shadow">
     <div class="px-4 py-2">
@@ -19,7 +18,6 @@ meta_description "Institutional investment managers who reported holding #{@inve
     </div>
   </div>
 </div>
-
 <div class="w-max max-w-full">
   <table id="allCusipHoldings" class="border shadow table-fixed" data-url="<%= all_cusip_holders_data_path(cusip: @cusip, year: @year, quarter: @quarter) %>">
     <thead>
