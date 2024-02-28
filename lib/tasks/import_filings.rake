@@ -6,8 +6,8 @@ namespace :filings do
 
   desc "Import all 13F filings"
   task import_all: :environment do
-    current_year = Date.today.year
-    current_quarter = (Date.today.month - 1) / 3 + 1
+    current_year = Date.current.year
+    current_quarter = (Date.current.month - 1) / 3 + 1
     years_range = (ThirteenF::FIRST_YEAR_EXPECTED_TO_HAVE_XML_URLS..current_year)
 
     years_range.to_a.product([1, 2, 3, 4]).

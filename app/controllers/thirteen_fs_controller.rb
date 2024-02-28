@@ -60,7 +60,7 @@ class ThirteenFsController < ApplicationController
     @year = params[:year].to_i
     @quarter = params[:quarter].to_i
 
-    head :bad_request unless (1..4).include?(@quarter) && @year <= Date.today.year
+    head :bad_request unless (1..4).include?(@quarter) && @year <= Date.current.year
 
     @lookup = CompanyCusipLookup.find_by(cusip: @cusip)
     @investment_name = @lookup&.issuer_name || @cusip
@@ -76,7 +76,7 @@ class ThirteenFsController < ApplicationController
   end
 
   def newest_filings
-    @filed_since = (Date.today - 7).beginning_of_quarter
+    @filed_since = (Date.current - 7).beginning_of_quarter
 
     @filings = ThirteenF.
       newest_filings_since(@filed_since).

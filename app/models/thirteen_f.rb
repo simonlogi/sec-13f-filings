@@ -127,8 +127,8 @@ class ThirteenF < ApplicationRecord
     import_most_recent_filings!
 
     process_unprocessed_filings!(
-      filing_year: Date.today.year,
-      filing_quarter: (Date.today.month - 1) / 3 + 1,
+      filing_year: Date.current.year,
+      filing_quarter: (Date.current.month - 1) / 3 + 1,
       refresh_views: false
     )
   end

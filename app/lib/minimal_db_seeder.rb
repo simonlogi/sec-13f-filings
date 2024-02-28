@@ -12,7 +12,7 @@ class MinimalDbSeeder
     @ciks = Array.wrap(ciks)
 
     @periods = periods || (0..3).map do |i|
-      date = Date.today - (3 * i).months
+      date = Date.current - (3 * i).months
       {year: date.year, quarter: (date.month - 1) / 3 + 1}
     end
   end

@@ -47,7 +47,7 @@ class DataController < ApplicationController
     year = params[:year].to_i
     quarter = params[:quarter].to_i
 
-    head :bad_request unless (1..4).include?(quarter) && year <= Date.today.year
+    head :bad_request unless (1..4).include?(quarter) && year <= Date.current.year
 
     data = DataTableFormatter.all_cusip_holdings_to_datatable(
       cusip: parsed_cusip,
